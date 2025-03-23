@@ -7,6 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import LabelEncoder
 
+# csv파일 가져오기
 df = pd.read_csv("emotions.csv")
 
 # 특성과 라벨 분리
@@ -29,3 +30,4 @@ y_pred = clf.predict(X_test)
 report = classification_report(y_test, y_pred, target_names=le.classes_, output_dict=True)
 report_df = pd.DataFrame(report).transpose()
 print(report_df)
+
