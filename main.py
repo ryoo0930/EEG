@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import os
+import random
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -19,10 +19,10 @@ le = LabelEncoder()
 y_encoded = le.fit_transform(y)
 
 # 훈련 / 테스트 분리
-X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.4, random_state=random.randint(1, 100))
 
 # 랜덤 포레스트 분류기
-clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf = RandomForestClassifier(n_estimators=100, random_state=random.randint(1, 100))
 clf.fit(X_train, y_train)
 
 # 예측 및 평가
